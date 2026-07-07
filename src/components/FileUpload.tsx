@@ -43,18 +43,25 @@ export default function FileUpload({ onFileUpload }: FileUploadProps) {
 
   return (
     <div
-      className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-12 text-center hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors cursor-pointer"
+      className="group relative border-2 border-dashed border-slate-300 dark:border-zinc-700 rounded-2xl p-16 text-center bg-white dark:bg-zinc-900 hover:border-brand-500 hover:bg-brand-50/50 dark:hover:border-brand-500/50 dark:hover:bg-brand-500/5 transition-all duration-300 cursor-pointer overflow-hidden shadow-sm hover:shadow-md"
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onClick={() => document.getElementById("fileInput")?.click()}
     >
-      <UploadCloud className="mx-auto h-12 w-12 text-gray-400" />
-      <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-gray-100">
-        Click or drag CSV to upload
-      </h3>
-      <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-        CSV files only
-      </p>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50/20 dark:to-brand-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      
+      <div className="relative z-10">
+        <div className="w-16 h-16 mx-auto bg-slate-100 dark:bg-zinc-800 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-100 dark:group-hover:bg-brand-900/30 transition-transform duration-300">
+          <UploadCloud className="h-8 w-8 text-slate-400 dark:text-zinc-500 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors" />
+        </div>
+        <h3 className="mt-6 text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+          Click or drag your CSV here
+        </h3>
+        <p className="mt-2 text-sm text-slate-500 dark:text-zinc-400 font-medium">
+          Supports .csv files
+        </p>
+      </div>
+
       <input
         id="fileInput"
         type="file"

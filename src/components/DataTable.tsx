@@ -11,31 +11,31 @@ export default function DataTable({ columns, data }: DataTableProps) {
   }
 
   return (
-    <div className="w-full overflow-auto rounded-lg shadow ring-1 ring-black ring-opacity-5">
+    <div className="w-full rounded-2xl border border-slate-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 shadow-sm overflow-hidden backdrop-blur-xl">
       <div className="max-h-[500px] overflow-y-auto">
-        <table className="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
-          <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0 z-10">
+        <table className="min-w-full divide-y divide-slate-200 dark:divide-zinc-800">
+          <thead className="bg-slate-50/90 dark:bg-zinc-900/90 sticky top-0 z-10 backdrop-blur-md shadow-sm">
             <tr>
               {columns.map((col, index) => (
                 <th
                   key={index}
                   scope="col"
-                  className="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 sm:pl-6"
+                  className="whitespace-nowrap py-4 pl-6 pr-4 text-left text-xs font-bold text-slate-500 dark:text-zinc-400 uppercase tracking-wider"
                 >
                   {col}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-900">
+          <tbody className="divide-y divide-slate-100 dark:divide-zinc-800/50 bg-white dark:bg-zinc-900">
             {data.map((row, rowIndex) => (
-              <tr key={rowIndex} className="hover:bg-gray-50 dark:hover:bg-gray-800">
+              <tr key={rowIndex} className="hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors group">
                 {columns.map((col, colIndex) => (
                   <td
                     key={colIndex}
-                    className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 dark:text-gray-400 sm:pl-6"
+                    className="whitespace-nowrap py-4 pl-6 pr-4 text-sm text-slate-600 dark:text-zinc-300 font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors"
                   >
-                    {row[col] || ""}
+                    {row[col] || <span className="text-slate-300 dark:text-zinc-600">-</span>}
                   </td>
                 ))}
               </tr>
