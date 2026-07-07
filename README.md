@@ -1,6 +1,7 @@
 # LeadSync AI – Developer Guide
 
 A production-ready, full-stack Next.js web application that empowers users to upload arbitrary CSV files and utilizes AI (Groq + Llama-3.3-70B) to intelligently and semantically map unpredictable columns into a strict, predefined CRM schema.
+LIVE LINK - https://leadsync-ai-beryl.vercel.app/
 
 **Deployed Link:** [https://leadsync-ai-beryl.vercel.app/](https://leadsync-ai-beryl.vercel.app/)
 
